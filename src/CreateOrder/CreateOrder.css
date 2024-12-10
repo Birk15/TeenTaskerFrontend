@@ -1,0 +1,98 @@
+.create-order {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Hellgrau-blauer Hintergrund */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.create-order h1 {
+  text-align: center;
+  color: #4a90e2; /* Blau-Grau Ton */
+  margin-bottom: 20px;
+}
+
+.create-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Abstand zwischen den Eingabefeldern */
+}
+
+.create-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-item label {
+  font-size: 14px;
+  color: #555; /* Dunkleres Grau */
+  margin-bottom: 5px;
+}
+
+.create-item input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc; /* Leicht grauer Rand */
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.create-item input:focus {
+  border-color: #4a90e2; /* Blau-Grau Ton bei Fokus */
+  outline: none;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.2);
+}
+
+.upload-image {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-label {
+  font-size: 16px;
+  color: #555;
+}
+
+#image-upload {
+  padding: 10px;
+  font-size: 14px;
+}
+
+#preview-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.save {
+  display: block;
+  width: 100%; /* Breite passend zu den Eingabefeldern */
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff; /* Weißer Text */
+  background-color: #4a90e2; /* Blau-Grau Ton */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.save:hover {
+  background-color: #357ab8; /* Dunklerer Blau-Ton beim Hover */
+}
+
+.save:active {
+  transform: scale(0.98); /* Leichter Klick-Effekt */
+  background-color: #2c5d85; /* Noch dunklerer Blau-Ton beim Drücken */
+}
