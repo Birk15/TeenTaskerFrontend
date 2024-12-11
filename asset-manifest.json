@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TeenTaskerFrontend/static/css/main.4a79c777.css",
-    "main.js": "/TeenTaskerFrontend/static/js/main.cfb1b729.js",
+    "main.js": "/TeenTaskerFrontend/static/js/main.b2533691.js",
     "index.html": "/TeenTaskerFrontend/index.html",
     "static/media/person.svg": "/TeenTaskerFrontend/static/media/person.0e55b670e96cbe03f327feb78d43c7bf.svg",
     "main.4a79c777.css.map": "/TeenTaskerFrontend/static/css/main.4a79c777.css.map",
-    "main.cfb1b729.js.map": "/TeenTaskerFrontend/static/js/main.cfb1b729.js.map"
+    "main.b2533691.js.map": "/TeenTaskerFrontend/static/js/main.b2533691.js.map"
   },
   "entrypoints": [
     "static/css/main.4a79c777.css",
-    "static/js/main.cfb1b729.js"
+    "static/js/main.b2533691.js"
   ]
 }
