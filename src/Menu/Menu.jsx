@@ -20,10 +20,16 @@ const Menu = ({ setView }) => {
   const passwordInputRef = useRef();
   const conPasswordInputRef = useRef();
 
+  // .env laden
+  const hostedPort =
+    process.env.REACT_APP_HOSTED_PORT || process.env.REACT_APP_LOCAL_PORT;
+  const localPort =
+    process.env.REACT_APP_LOCAL_PORT || process.env.REACT_APP_HOSTED_PORT;
+
   // Datenabruf beim Mounten der Komponente
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get_users")
+      .get(`${localPort}/get_users`)
       .then((response) => {
         setUsers(response.data.data);
         console.log("Users loaded:", response.data.data);
@@ -59,10 +65,7 @@ const Menu = ({ setView }) => {
 
       if (password === confirmPassword) {
         try {
-          const response = await axios.post(
-            "http://localhost:5000/add_user",
-            newUser
-          );
+          const response = await axios.post(`${localPort}/add_user`, newUser);
           console.log(response.data.message);
           setResponse("Success!");
           setCorrectPassword(true);

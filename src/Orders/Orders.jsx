@@ -38,7 +38,7 @@ const Orders = () => {
     ? orders.filter(
         (order) =>
           (order.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            order.littleDisc
+            order.description
               .toLowerCase()
               .includes(searchTerm.toLowerCase())) &&
           (priceFilter === "" ||

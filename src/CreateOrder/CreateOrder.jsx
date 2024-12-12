@@ -26,11 +26,22 @@ const CreateOrder = () => {
     formData.append("image", file); // Bilddatei anhängen
 
     // Benutzereingaben anhängen
-    const inputs = ["name", "email", "title", "description", "price"];
+    const inputs = [
+      "name",
+      "email",
+      "title",
+      "description",
+      "category",
+      "price",
+    ];
     inputs.forEach((input) => {
       const value = document.getElementById(input)?.value || "";
       formData.append(input, value);
     });
+
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
 
     try {
       const response = await axios.post(
@@ -43,7 +54,7 @@ const CreateOrder = () => {
         }
       );
       console.log("Serverantwort:", response.data);
-      alert("Bild erfolgreich hochgeladen!");
+      alert("Order erfolgreich hochgeladen!");
     } catch (error) {
       if (error.response) {
         console.error("Fehler vom Server:", error.response.data);
@@ -76,6 +87,19 @@ const CreateOrder = () => {
           <input type="text" id="description" name="description" />
         </div>
         <div className="create-item">
+          <label htmlFor="category">Category</label>
+          <select id="category">
+            <option value="Hausarbeit">Hausarbeit</option>
+            <option value="Umzug">Umzug</option>
+            <option value="Einkaufen">Einkaufen</option>
+            <option value="Gartenarbeit">Gartenarbeit</option>
+            <option value="Reparatur">Reparatur</option>
+            <option value="Reinigung">Reinigung</option>
+            <option value="Tiere">Tiere</option>
+            <option value="Nachhilfe">Nachhilfe</option>
+          </select>
+        </div>
+        <div className="create-item">
           <label htmlFor="price">Price:</label>
           <input type="number" id="price" name="price" />
         </div>
@@ -96,7 +120,9 @@ const CreateOrder = () => {
             </div>
           )}
         </div>
-        <button className="save">Save</button>
+        <button type="submit" className="save">
+          Save
+        </button>
       </form>
     </div>
   );
