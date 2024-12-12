@@ -3,6 +3,12 @@ import "./CreateOrder.css";
 import axios from "axios";
 
 const CreateOrder = () => {
+  // .env laden
+  const hostedPort =
+    process.env.REACT_APP_HOSTED_PORT || process.env.REACT_APP_LOCAL_PORT;
+  const localPort =
+    process.env.REACT_APP_LOCAL_PORT || process.env.REACT_APP_HOSTED_PORT;
+
   const [preview, setPreview] = useState(null); // Vorschau
   const [file, setFile] = useState(null); // Bilddatei
 
@@ -44,15 +50,11 @@ const CreateOrder = () => {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/add_order",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${hostedPort}/add_order`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       console.log("Serverantwort:", response.data);
       alert("Order erfolgreich hochgeladen!");
     } catch (error) {

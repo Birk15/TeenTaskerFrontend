@@ -29,7 +29,7 @@ const Menu = ({ setView }) => {
   // Datenabruf beim Mounten der Komponente
   useEffect(() => {
     axios
-      .get(`${localPort}/get_users`)
+      .get(`${hostedPort}/get_users`)
       .then((response) => {
         setUsers(response.data.data);
         console.log("Users loaded:", response.data.data);
@@ -37,7 +37,7 @@ const Menu = ({ setView }) => {
       .catch((err) => {
         console.error("Fehler beim Laden der User!", err);
       });
-  }, []); // Leer: Nur einmal beim Mount ausgeführt
+  }, [hostedPort]); // Leer: Nur einmal beim Mount ausgeführt
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -65,7 +65,7 @@ const Menu = ({ setView }) => {
 
       if (password === confirmPassword) {
         try {
-          const response = await axios.post(`${localPort}/add_user`, newUser);
+          const response = await axios.post(`${hostedPort}/add_user`, newUser);
           console.log(response.data.message);
           setResponse("Success!");
           setCorrectPassword(true);

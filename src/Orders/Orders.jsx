@@ -5,6 +5,12 @@ import "./Orders.css";
 import axios from "axios";
 
 const Orders = () => {
+  // .env laden
+  const hostedPort =
+    process.env.REACT_APP_HOSTED_PORT || process.env.REACT_APP_LOCAL_PORT;
+  const localPort =
+    process.env.REACT_APP_LOCAL_PORT || process.env.REACT_APP_HOSTED_PORT;
+
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -52,7 +58,7 @@ const Orders = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/get_orders")
+        .get(`${hostedPort}/get_orders`)
         .then((response) => {
           setOrders(response.data.data);
           console.log("Order Loaded:", response.data.data);
@@ -63,7 +69,7 @@ const Orders = () => {
     } catch (error) {
       console.log("Orders konnten nicht geladen werden!", error);
     }
-  }, []);
+  }, [hostedPort]);
 
   return (
     <div>
